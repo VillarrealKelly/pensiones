@@ -25,8 +25,6 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                    <a class="btn btn-default" href="{{route('usuarios')}}">USUARIOS</a>
-                    <a class="btn btn-default" href="{{route('representantes')}}">Representantes</a>
 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -43,6 +41,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
@@ -52,6 +51,9 @@
                                 </li>
                             @endif
                         @else
+
+                    <a class="btn btn-default" href="{{route('usuarios')}}">USUARIOS</a>
+                    <a class="btn btn-default" href="{{route('representantes')}}">Representantes</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->usu_cedula }}
