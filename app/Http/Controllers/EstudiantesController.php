@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Estudiantes;
+use App\Representantes;
+use DB;
 use Illuminate\Http\Request;
 
 class EstudiantesController extends Controller
@@ -13,7 +15,23 @@ class EstudiantesController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes=Estudiantes::all();
+         $estudiantes=DB::select("
+            SELECT * FROM estudiantes e 
+            JOIN representantes r ON e.rep_id=r.rep_id
+         
+
+            ");
+
+       // dd('hola');
+         //$estudiantes=Estudiantes::all();
+        ///Carpeta.archivo.blade.php
+        return view('estudiantes.index')
+        ->with('estudiantes',$estudiantes)
+         ///1 nombre que recivimos  2como se llama la variable
+        ;
+
+
     }
 
     /**
@@ -24,6 +42,12 @@ class EstudiantesController extends Controller
     public function create()
     {
         //
+        //dd('create');
+         $estudiantes=Estudiantes::all();
+         $representantes=Representantes::all();
+        return view('estudiantes.create')
+        ->with('estudiantes',$estudiantes)
+        ->with('representantes',$representantes);
     }
 
     /**
@@ -35,6 +59,10 @@ class EstudiantesController extends Controller
     public function store(Request $request)
     {
         //
+        //dd('pe');
+          $data=$request->all();
+        Estudiantes::create($data);
+        return redirect(route('estudiantes'));
     }
 
     /**
@@ -57,6 +85,12 @@ class EstudiantesController extends Controller
     public function edit($id)
     {
         //
+         $estudiantes=Estudiantes::find($id);
+       $representantes=Representantes::all();
+       return view('estudiantes.edit')
+        ->with('estudiantes',$estudiantes)
+        ->with('representantes',$representantes);
+
     }
 
     /**
@@ -69,6 +103,9 @@ class EstudiantesController extends Controller
     public function update(Request $request, $id)
     {
         //
+             $estudiantes=Estudiantes::find($id);
+        $estudiantes->update($request->all());
+        return redirect(route('estudiantes'));
     }
 
     /**
@@ -80,5 +117,7 @@ class EstudiantesController extends Controller
     public function destroy($id)
     {
         //
+        Estudiantes::destroy($id);
+        return redirect(route('estudiantes'));
     }
 }

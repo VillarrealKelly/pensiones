@@ -70,6 +70,10 @@ class UsuariosController extends Controller
     public function edit($id)
     {
         //
+        $usuarios=User::find($id);
+        return view('usuarios.edit')
+        ->with('usuarios',$usuarios)
+        ;
     }
 
     /**
@@ -82,6 +86,9 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $u=User::find($id);
+        $u->update($request->all());
+        return redirect(route('usuarios'));
     }
 
     /**
@@ -93,5 +100,7 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         //
+         User::destroy($id);
+        return redirect(route('usuarios'));
     }
 }

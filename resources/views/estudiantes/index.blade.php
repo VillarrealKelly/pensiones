@@ -2,9 +2,9 @@
 @section('content')
 <div class="container">
 	<div class="col-md-12">
-	<h1 style="font-family:algeria">REPRESENTANTES 
-	<a href="{{route('representantes.create')}}" class="btn btn-success">
-	<img src="" width="20px"> Nuevo Representante</a></h1>
+	<h1 style="font-family:algeria">ESTUDIANTES 
+	<a href="{{route('estudiantes.create')}}" class="btn btn-success">
+	<img src="" width="20px"> Nuevo Estudiantes </a></h1>
 	<table class="table table-striped table table-sm">
 		<th style="text-align:center;">#</th>
 		<th style="text-align:center;">Nombre</th>
@@ -14,25 +14,25 @@
 		<th style="text-align:center;">Paralelo</th>
 		<th style="text-align:center;">Especialidad</th>
 		<th style="text-align:center;">Fecha</th>
-		@foreach($estudiantes as $r)
+		@foreach($estudiantes as $e)
 			<tr>
 				<td style="text-align:center;">{{$loop->iteration}}</td>
-				<td style="text-align:center;">{{$r->est_nombre}}</td>
-				<td style="text-align:center;">{{$r->est_apellido}}</td>
-				<td style="text-align:center;">{{$r->est_cedula}}</td>
-				<td style="text-align:center">{{$r->est_curso}}</td>
-				<td style="text-align:center">{{$r->est_paralelo}}</td>
-				<td style="text-align:center">{{$r->est_especialidad}}</td>
-				<td style="text-align:center">{{$r->est_fecha}}</td>
+				<td style="text-align:center;">{{$e->est_nombre}}</td>
+				<td style="text-align:center;">{{$e->est_apellido}}</td>
+				<td style="text-align:center;">{{$e->est_cedula}}</td>
+				<td style="text-align:center">{{$e->est_curso}}</td>
+				<td style="text-align:center">{{$e->est_paralelo}}</td>
+				<td style="text-align:center">{{$e->est_especialidad}}</td>
+				<td style="text-align:center">{{$e->est_fecha}}</td>
 			 <td>
 
 		<div class="row">
-					<a href="{{route('estudiantes.edit',$r->est_id)}}" class="btn btn-info  btn-sm" title="Editar" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+					<a href="{{route('estudiantes.edit',$e->est_id)}}" class="btn btn-info  btn-sm" title="Editar" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
   
  					<path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
 					</svg></a>
 			                    
-                    <form action="{{route('estudiantes.destroy',$r->est_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">
+                    <form action="{{route('estudiantes.destroy',$e->est_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">
                     	@csrf
                      
                     	<button type="submit" class="btn btn-danger">

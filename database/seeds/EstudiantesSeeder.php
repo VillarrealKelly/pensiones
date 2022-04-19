@@ -12,10 +12,16 @@ class EstudiantesSeeder extends Seeder
     public function run()
     {
         //
-        //  DB::table('estudiantes')->insert([
-        //  	'est_nombre'=>'Kelly',
-        //  	'est_apellido'=>'Villarreal',
-        //  	'est_cedula'=>'1715093521',]);
+         DB::table('estudiantes')->insert([
+         	'est_nombre'=>'Kelly',
+         	'est_apellido'=>'Villarreal',
+         	'est_cedula'=>'1715093521',
+            'est_curso'=>'OCTAVO',
+            'est_paralelo'=>'A',
+            'est_especialidad'=>'Mecanica Automotriz',
+            'est_fecha'=>date('Y-m-d H:i'),
+            'rep_id'=>1,
+        ]);
 
         // DB::table('estudiantes')->insert(['est_curso'=>'OCTAVO']);
         // DB::table('estudiantes')->insert(['est_curso'=>'NOVENO']);
