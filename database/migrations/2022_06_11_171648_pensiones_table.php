@@ -19,7 +19,7 @@ class PensionesTable extends Migration
             $table->string('pen_cantidad');
             $table->date('pen_fecha');
              $table->string('pen_cant_paga');
-            $table->integer('usu_estado')->default(1);
+            $table->integer('pen_estado')->default(1);
              $table->foreignId('usu_id')->references('usu_id')->on('users');
              $table->foreignId('est_id')->references('est_id')->on('estudiantes');
         

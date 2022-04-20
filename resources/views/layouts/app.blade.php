@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </head>
 <body>
     <div id="app">
@@ -55,6 +56,7 @@
                     <a class="btn btn-default" href="{{route('usuarios')}}">USUARIOS</a>
                     <a class="btn btn-default" href="{{route('representantes')}}">REPRESENTANTES</a>
                     <a class="btn btn-default" href="{{route('estudiantes')}}">ESTUDIANTES</a>
+                    <a class="btn btn-default" href="{{route('pensiones')}}">PENSIONES</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->usu_cedula }}

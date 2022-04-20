@@ -14,6 +14,7 @@
 		<th style="text-align:center;">Paralelo</th>
 		<th style="text-align:center;">Especialidad</th>
 		<th style="text-align:center;">Fecha</th>
+		<th style="text-align:center;">Representante</th>
 		@foreach($estudiantes as $e)
 			<tr>
 				<td style="text-align:center;">{{$loop->iteration}}</td>
@@ -24,6 +25,7 @@
 				<td style="text-align:center">{{$e->est_paralelo}}</td>
 				<td style="text-align:center">{{$e->est_especialidad}}</td>
 				<td style="text-align:center">{{$e->est_fecha}}</td>
+				<td style="text-align:center">{{$e->rep_cedula}}</td>
 			 <td>
 
 		<div class="row">

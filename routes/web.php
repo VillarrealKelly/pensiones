@@ -41,3 +41,11 @@ Route::post('/estudiantes/store','EstudiantesController@store')->name('estudiant
 Route::get('/estudiantes/edit/{rep_id}','EstudiantesController@edit')->name('estudiantes.edit');
 Route::post('/estudiantes/update/{rep_id}','EstudiantesController@update')->name('estudiantes.update');
 Route::post('/estudiantes/destroy/{rep_id}','EstudiantesController@destroy')->name('estudiantes.destroy');
+
+Route::get('/pensiones','PensionesController@index')->name('pensiones');
+Route::get('/pensiones/create','PensionesController@create')->name('pensiones.create');
+Route::post('/pensiones/store','PensionesController@store')->name('pensiones.store');
+Route::post('/pensiones/destroy/{pen_id}','PensionesController@destroy')->name('pensiones.destroy');
+Route::post('/pensiones/update/{pen_id}','PensionesController@update')->name('pensiones.update');
+Route::get('/pensiones/edit/{pen_id}','PensionesController@edit')->name('pensiones.edit');
+Route::post('/pensiones/search','PensionesController@index')->name('pensiones.search');

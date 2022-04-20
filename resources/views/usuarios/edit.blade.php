@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="container col-md-4" >
 	<div class="col-md-12" style="margin-top: 2%;">
 		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px"> Registro de Usuarios</h3>
-		 <form action="{{route('usuarios.update',$usuarios->usu_id)}}" method="POST" >
+		 <form action="{{route('usuarios.update',$usuarios->usu_id)}}" method="POST"  >
 			@csrf
 				<div class="form-group">
 					<label for="">Nombre:</label>
