@@ -7,7 +7,7 @@ use App\Pensiones;
 use App\User;
 use App\Estudiantes;
 use DB;
-use PDF;
+// use PDF;
 
 class PensionesController extends Controller
 {
@@ -32,14 +32,14 @@ class PensionesController extends Controller
             Join users u ON p.usu_id=u.usu_id
             JOIN estudiantes e ON p.est_id=e.est_id
      
-            WHERE p.con_fecha BETWEEN '$desde' AND '$hasta'
+            WHERE p.pen_fecha BETWEEN '$desde' AND '$hasta'
 
             ");
-        if (isset($data['btn_pdf'])) {
-            $data=['pensiones'=>$pensiones];
-        $pdf= PDF::loadView('pensiones.reporte',$data);
-        return $pdf->stream('reporte.pdf');            
-        }
+        // if (isset($data['btn_pdf'])) {
+        //     $data=['pensiones'=>$pensiones];
+        // $pdf= PDF::loadView('pensiones.reporte',$data);
+        // return $pdf->stream('reporte.pdf');            
+        // }
 
         return view('pensiones.index')
          ->with('pensiones',$pensiones)

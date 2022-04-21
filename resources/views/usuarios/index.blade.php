@@ -4,7 +4,7 @@
 	<div class="col-md-12">
 	<h1 style="font-family:algeria">Lista  de Usuarios 
 	<a href="{{route('usuarios.create')}}" class="btn btn-success">
-	<img src="" width="20px"> Nuevo Usuario</a></h1>
+	<img src="https://cdn-icons-png.flaticon.com/512/32/32360.png" width="20px"> Nuevo Usuario</a></h1>
 	<table class="table table-striped table table-sm">
 		<th style="text-align:center;">#</th>
 		<th style="text-align:center;">Nombre</th>

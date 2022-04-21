@@ -104,17 +104,33 @@
   				</div>
   				 <div class="col-md-6">
 					<label for="">Representante:</label>
-					<select   name="rep_id" id="rep_id" class="form-control @error('rep_id') is-invalid @enderror" name="rep_id" value="{{ old('rep_id') }}" required autocomplete="rep_id" autofocus>
+					<input    name="rep_id" id="rep_id" class="form-control @error('rep_id') is-invalid @enderror" name="rep_id" value="{{ old('rep_id') }}" required autocomplete="rep_id" autofocus>
 						   @error('rep_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 					
-						@foreach($representantes as $r)
+					<!-- 	@foreach($representantes as $r)
 						<option value="{{$r->rep_id}}">{{$r->rep_cedula}}</option>
-						@endforeach
-					</select>
+						@endforeach -->
+						<script>
+							var representantes=[    SELECT * FROM estudiantes e 
+                                                 Join representantes r ON e.rep_id=r.rep_id
+    
+							];
+							$("#rep_id").autocomplete(
+							{
+								sourse:representantes
+							},
+							{
+								autofocus:true,
+								delay:0,
+								minLength:1
+							});
+							
+						</script>
+					
   				</div>
   				<div class="col-md-6">
 					<label for="">Fecha:</label>

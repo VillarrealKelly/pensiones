@@ -25,35 +25,13 @@
 		<th style="text-align:center;">Estado</th>
 		<th style="text-align:center;">Usuario</th>
 		<th style="text-align:center;">Estudiante</th>
-	<!-- <?php
-		// $t_ing=0;
-		// $t_egr=0;
-		// $t_saldo=0;
-	?>
-		
-
-		<?php
-		// // if ($con->cat_id==2){
-		// $t_ing+=$con->con_cantidad;
-		}
-
-		// if ($con->cat_id==1){
-		// $t_egr+=$con->con_cantidad;
-		// }
-		// $t_saldo=$t_ing-$t_egr;
-
-		?> -->
+	
 
 		@foreach($pensiones as $p)
  <tr>
      	<td style="text-align:center">{{$loop->iteration}}</td>
 		<td style="text-align:center">{{$p->pen_cantidad}}</td>
-<!-- 		<td style="text-align:center">{{$p->cat_nombre}}</td> -->
-				<!-- 		@if($p->cat_nombre==1)
-				<td style="text-align:center;">Ingreso</td>
-				@else
-				<td style="text-align:center;">Egreso</td>
-				@endif -->
+
 		<td style="text-align:center">{{$p->pen_fecha}}</td>
 		<td style="text-align:center">{{$p->pen_cant_paga}}</td>
 		<td style="text-align:center">{{$p->pen_estado}}</td>
@@ -85,15 +63,7 @@
 
      </tr>
 		@endforeach
-	<!-- 	<tr>
-			<th colspan="2">TOTALES:
-				<th>INGRESOS:{{$t_ing}}</th>
-				<th>EGRESOS:{{$t_egr}}</th>
-				<th>SALDO:{{$t_saldo}}</th>
-				
-				
-			</th>
-		</tr> -->
+
 </table>		
 					
  			
