@@ -3,7 +3,7 @@
 
 <div class="container col-md-4" >
 	<div class="col-md-12" style="margin-top: 2%;">
-		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px"> Registro de Usuarios</h3>
+		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px"> Registro de Representantes</h3>
 		 <form action="{{route('representantes.update',$representantes->rep_id)}}" method="POST">
 			@csrf
 				<div class="form-group">
@@ -18,7 +18,7 @@
   				</div>
 	  			<div class="form-group">
 					<label for="">Apellido:</label>
-				    <input  value="{{$representantes->rep_apellido}}"type="text" name="rep_apellido" id="rep_apellido" class="form-control @error('rep_nombre') is-invalid @enderror" name="rep_nombre" value="{{ old('rep_nombre') }}" required autocomplete="rep_nombre" autofocus  placeholder="Escriba su apellido">
+				    <input  value="{{$representantes->rep_apellido}}"type="text" name="rep_apellido" id="rep_apellido" class="form-control @error('rep_apellido') is-invalid @enderror" name="rep_apellido" value="{{ old('rep_apellido') }}" required autocomplete="rep_apellido" autofocus  placeholder="Escriba su apellido">
 
                                 @error('rep_apellido')
                                     <span class="invalid-feedback" role="alert">

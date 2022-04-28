@@ -35,8 +35,8 @@ Route::get('/representantes/edit/{rep_id}','RepresentantesController@edit')->nam
 Route::post('/representantes/update/{rep_id}','RepresentantesController@update')->name('representantes.update');
 Route::post('/representantes/destroy/{rep_id}','RepresentantesController@destroy')->name('representantes.destroy');
 
-Route::get('/estudiantes','EstudiantesController@index')->name('estudiantes');
-Route::get('/estudiantes/create','EstudiantesController@create')->name('estudiantes.create');
+Route::get('/estudiantes/{rep_id}','EstudiantesController@index')->name('estudiantes');
+Route::get('/estudiantes/create/{rep_id}','EstudiantesController@create')->name('estudiantes.create');
 Route::post('/estudiantes/store','EstudiantesController@store')->name('estudiantes.store');
 Route::get('/estudiantes/edit/{rep_id}','EstudiantesController@edit')->name('estudiantes.edit');
 Route::post('/estudiantes/update/{rep_id}','EstudiantesController@update')->name('estudiantes.update');

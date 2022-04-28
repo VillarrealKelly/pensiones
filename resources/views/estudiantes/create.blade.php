@@ -9,7 +9,7 @@
 			@csrf
 			<div class="row">
 				
-			
+			<input type="hidden" id="rep_id" name="rep_id" value="{{$representantes->rep_id}}">
 				<div class="form-group">
 					<label for="">Nombre:</label>
 				    <input type="text" name="est_nombre" id="est_nombre" class="form-control @error('est_nombre') is-invalid @enderror" name="est_nombre" value="{{ old('est_nombre') }}" required autocomplete="est_nombre" autofocus placeholder="Escriba su nombre">
@@ -102,36 +102,7 @@
 				
 					</select>
   				</div>
-  				 <div class="col-md-6">
-					<label for="">Representante:</label>
-					<input    name="rep_id" id="rep_id" class="form-control @error('rep_id') is-invalid @enderror" name="rep_id" value="{{ old('rep_id') }}" required autocomplete="rep_id" autofocus>
-						   @error('rep_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-					
-					<!-- 	@foreach($representantes as $r)
-						<option value="{{$r->rep_id}}">{{$r->rep_cedula}}</option>
-						@endforeach -->
-						<script>
-							var representantes=[    SELECT * FROM estudiantes e 
-                                                 Join representantes r ON e.rep_id=r.rep_id
-    
-							];
-							$("#rep_id").autocomplete(
-							{
-								sourse:representantes
-							},
-							{
-								autofocus:true,
-								delay:0,
-								minLength:1
-							});
-							
-						</script>
-					
-  				</div>
+  			
   				<div class="col-md-6">
 					<label for="">Fecha:</label>
 					<input type="date" name="est_fecha" id="est_fecha" class="form-control @error('est_fecha') is-invalid @enderror" name="est_fecha" value="{{ old('est_fecha') }}" required autocomplete="est_fecha" autofocus >

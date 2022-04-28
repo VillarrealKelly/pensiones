@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="col-md-12">
 	<h1 style="font-family:algeria">ESTUDIANTES 
-	<a href="{{route('estudiantes.create')}}" class="btn btn-success">
+	<a href="{{route('estudiantes.create',$representantes->rep_id)}}" class="btn btn-success">
 	<img src="https://cdn-icons-png.flaticon.com/512/32/32360.png" width="20px"> Nuevo Estudiantes </a></h1>
 	<table class="table table-striped table table-sm">
 		<th style="text-align:center;">#</th>

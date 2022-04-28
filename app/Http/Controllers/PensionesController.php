@@ -7,7 +7,7 @@ use App\Pensiones;
 use App\User;
 use App\Estudiantes;
 use DB;
-// use PDF;
+use PDF;
 
 class PensionesController extends Controller
 {
@@ -57,6 +57,14 @@ class PensionesController extends Controller
     public function create()
     {
         //
+        $pensiones=Pensiones::all();
+        $estudiantes=Estudiantes::all();
+        $usuarios=User::all();
+        return view('pensiones.create')
+         ->with('pensiones',$pensiones)
+         ->with('estudiantes',$estudiantes)
+         ->with('usuarios',$usuarios)
+         ;
     }
 
     /**

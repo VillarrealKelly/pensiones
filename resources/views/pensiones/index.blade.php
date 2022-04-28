@@ -3,7 +3,7 @@
 
 <div class="container">
 	<div class="col-md-12">
-		<h1 style="font-family:algeria">CONTROL
+		<h1 style="font-family:algeria">PENSIONES
 		<a href="{{route('pensiones.create')}}" class="btn btn-success">
 		<img src="https://cdn-icons-png.flaticon.com/512/32/32360.png" width="20px"> Nueva Pensión</a>
 		</h1>

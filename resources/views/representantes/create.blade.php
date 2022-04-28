@@ -3,7 +3,7 @@
 
 <div class="container col-md-4" >
 	<div class="col-md-12" style="margin-top: 25%;">
-		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px"> Registro de Usuarios</h3>
+		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px">Registro de Representantes</h3>
 		 <form action="{{route('representantes.store')}}" method="POST" >
 			@csrf
 			<div class="row">
@@ -20,7 +20,7 @@
   				</div>
 	  			<div class="form-group">
 					<label for="">Apellido:</label>
-				    <input type="text" name="rep_apellido" id="rep_apellido" class="form-control @error('rep_nombre') is-invalid @enderror" name="rep_nombre" value="{{ old('rep_nombre') }}" required autocomplete="rep_nombre" autofocus  placeholder="Escriba su apellido" >
+				    <input type="text" name="rep_apellido" id="rep_apellido" class="form-control @error('rep_apellido') is-invalid @enderror" name="rep_apellido" value="{{ old('rep_apellido') }}" required autocomplete="rep_apellido" autofocus  placeholder="Escriba su apellido" >
                                 
 
                                 @error('rep_apellido')
@@ -31,7 +31,7 @@
 	  			</div>
 	  			
 	  			<div class="form-group">
-					<label for="">Cedula: </label>
+					<label for="">Cédula:</label>
 				    <input type="text" name="rep_cedula" id="rep_cedula" class="form-control @error('rep_cedula') is-invalid @enderror" name="rep_cedula" value="{{ old('rep_cedula') }}" required autocomplete="rep_cedula" autofocus  placeholder="Escriba su numero de cedula" maxlength="10">
 
 
@@ -43,7 +43,7 @@
 	  			</div>
 
 				<div class="">
-					<label for="">Fecha</label>
+					<label for="">Fecha:</label>
 					<input type="date" name="rep_fecha" id="rep_fecha" class="form-control @error('rep_fecha') is-invalid @enderror" name="rep_fecha" value="{{ old('rep_fecha') }}" required autocomplete="rep_fecha" autofocus >
 
 
