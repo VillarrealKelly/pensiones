@@ -7,6 +7,7 @@ use App\Pensiones;
 use App\User;
 use App\Estudiantes;
 use DB;
+use Auth;
 use PDF;
 
 class PensionesController extends Controller
@@ -18,28 +19,34 @@ class PensionesController extends Controller
      */
     public function index(Request $request)
     {
-         $data=$request->all();
+        $data=$request->all();
         $desde=date('Y-m-d');
         $hasta=date('Y-m-d');
-
+ //dd($data);
         if(isset($data['desde'])){// si lehe dado en el botón buscar
         $desde=$data['desde'];
         $hasta=$data['hasta'];
 
         }
          $pensiones=DB::select("
-            SELECT * FROM pensiones p 
+             SELECT * FROM pensiones p 
             Join users u ON p.usu_id=u.usu_id
             JOIN estudiantes e ON p.est_id=e.est_id
-     
-            WHERE p.pen_fecha BETWEEN '$desde' AND '$hasta'
+             WHERE p.pen_fecha BETWEEN '$desde' AND '$hasta'
 
             ");
-        // if (isset($data['btn_pdf'])) {
-        //     $data=['pensiones'=>$pensiones];
-        // $pdf= PDF::loadView('pensiones.reporte',$data);
-        // return $pdf->stream('reporte.pdf');            
-        // }
+
+        if (isset($data['btn_pdf'])) {
+
+    // $pdf = app('dompdf.wrapper');
+    // $pdf->loadHTML('<h1>Test</h1>');
+    // return $pdf->stream();
+        $data=['pensiones'=>$pensiones[0]];
+        // dd($data);
+        $pdf=PDF::loadView('pensiones.reporte',$data);
+        return $pdf->stream('reporte.pdf');            
+
+        }
 
         return view('pensiones.index')
          ->with('pensiones',$pensiones)
@@ -76,6 +83,12 @@ class PensionesController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($data);
+        $data=$request->all();
+        $data['usu_id']=Auth::user()->usu_id;
+        Pensiones::create( $data);
+        return redirect(route('pensiones'));
+
     }
 
     /**
@@ -98,6 +111,15 @@ class PensionesController extends Controller
     public function edit($id)
     {
         //
+
+         $pensiones=Pensiones::find($id);
+       $estudiantes=Estudiantes::all();
+       $usuarios=User::all();
+        return view('pensiones.edit')
+        ->with('pensiones',$pensiones)
+        ->with('estudiantes',$estudiantes)
+         ->with('usuarios',$usuarios)
+        ;
     }
 
     /**
@@ -110,6 +132,9 @@ class PensionesController extends Controller
     public function update(Request $request, $id)
     {
         //
+             $pensiones=Pensiones::find($id);
+        $pensiones->update($request->all());
+        return redirect(route('pensiones'));
     }
 
     /**
@@ -121,5 +146,7 @@ class PensionesController extends Controller
     public function destroy($id)
     {
         //
+    Pensiones::destroy($id);
+        return redirect(route('pensiones'));
     }
 }

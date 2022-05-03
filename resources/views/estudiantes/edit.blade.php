@@ -46,7 +46,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-						
+						<option selected disabled  value="">Seleccione una opción</option>
 						<option value="OCTAVO">OCTAVO</option>
 						<option value="NOVENO">NOVENO</option>
 						<option value="DÉCIMO">DÉCIMO</option>
@@ -65,7 +65,7 @@
                                     </span>
                                 @enderror
 						
-						
+						<option selected disabled  value="">Seleccione una opción</option>
 						<option value="A">A</option>
 						<option value="B">B</option>
 						<option value="C">C</option>
@@ -84,7 +84,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-						<!-- <option value="">Elija una opcion</option> -->
+						<option selected disabled  value="">Seleccione una opción</option>v
 						<option value="Informatica">Informática</option>
 						<option value="Electronica">Electrónica</option>
 						<option value="Contabilidad">Contabilidad</option>
