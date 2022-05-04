@@ -1,14 +1,22 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="container col-md-4" >
-	<div class="col-md-12" style="margin-top: 2%;">
+<br>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header">
+<!-- <div class="container col-md-4" >
+	<div class="col-md-12" style="margin-top: 2%;"> -->
 		<h3 style="font-family:algeria;text-align: center;"><img src="" width="40px"> Registro de Estudiantes</h3>
+	</div>
+	<div class="card-body">
 		 <form action="{{route('estudiantes.update',$estudiantes->est_id)}}" method="POST"  >
 			@csrf
+
 			<div class="row">
 			 			
-				<div class="form-group">
+				<div class="form-group col-md-4">
 					<label for="">Nombre:</label>
 				    <input value="{{$estudiantes->est_nombre}}"  type="text" name="est_nombre" id="est_nombre" class="form-control @error('est_nombre') is-invalid @enderror" name="est_nombre" value="{{ old('est_nombre') }}" required autocomplete="est_nombre" autofocus placeholder="Escriba su nombre">
 				     @error('est_nombre')
@@ -17,7 +25,7 @@
                                     </span>
                                 @enderror
   				</div>
-	  			<div class="form-group">
+	  			<div class="form-group col-md-4">
 					<label for="">Apellido:</label>
 				    <input value="{{$estudiantes->est_apellido}}" type="text" name="est_apellido" id="est_apellido" class="form-control @error('est_apellido') is-invalid @enderror" name="est_apellido" value="{{ old('est_apellido') }}" required autocomplete="est_apellido" autofocus placeholder="Escriba su apellido">
 
@@ -28,7 +36,7 @@
                                 @enderror
 	  			</div>
 	  		
-	  			<div class="form-group">
+	  			<div class="form-group col-md-4">
 					<label for="">Cédula: </label>
 				    <input value="{{$estudiantes->est_cedula}}" type="number" name="est_cedula" id="est_cedula" class="form-control @error('est_cedula') is-invalid @enderror" name="est_cedula" value="{{ old('est_cedula') }}" required autocomplete="est_cedula" autofocus placeholder="Escriba su numero de cedula" maxlength="10">
 
@@ -38,7 +46,7 @@
                                     </span>
                                 @enderror
 	  			</div>
-	  			<div class="col-md-6">
+	  			<div class=" form-group col-md-6">
 					<label for="">Curso:</label>
 					<select value="{{$estudiantes->est_curso}}"  name="est_curso" id="est_curso" class="form-control @error('est_curso') is-invalid @enderror" name="est_curso" value="{{ old('est_curso') }}" required autocomplete="est_curso" autofocus>
 						 @error('est_curso')
@@ -75,7 +83,7 @@
 						
 					</select>
   				</div>
-  				<div class="col-md-6">
+  				<div class=" form-group col-md-6">
 					<label for="">Especialidad:</label>
 					<select value="{{$estudiantes->est_especialidad}}"  name="est_especialidad" id="est_especialidad" class="form-control @error('est_especialidad') is-invalid @enderror" name="est_especialidad" value="{{ old('est_especialidad') }}" required autocomplete="est_especialidad" autofocus>
 
@@ -94,7 +102,7 @@
 				
 					</select>
   				</div>
-  				 <div class="col-md-6">
+  				 <div class=" form-group col-md-6">
 					<label for="">Representante:</label>
 					<select value="{{$estudiantes->rep_id}}"  name="rep_id" id="rep_id" class="form-control @error('rep_id') is-invalid @enderror" name="rep_id" value="{{ old('rep_id') }}" required autocomplete="rep_id" autofocus>
 						  @error('rep_id')
@@ -108,7 +116,7 @@
 						@endforeach
 					</select>
   				</div>
-  				<div class="col-md-6">
+  				<div class="form-group col-md-6">
 					<label for="">Fecha:</label>
 					<input value="{{$estudiantes->est_fecha}}" type="date" name="est_fecha" id="est_fecha" class="form-control @error('est_fecha') is-invalid @enderror" name="est_fecha" value="{{ old('est_fecha') }}" required autocomplete="est_fecha" autofocus >
 					    @error('est_fecha')
@@ -119,10 +127,14 @@
   				</div>
   				</div>
 	  	
-				<div class="form-group">
+				<div class="form-group ">
 					<button   type="submit" class="btn btn-primary"><img src="https://cdn-icons-png.flaticon.com/512/60/60959.png" width="15px"> Registrar</button>
 				</div>
 		</form> 
 	</div>
-</div>	
+</div>
+</div>
+		</div>
+	</div>
+		</div>	
 @endsection

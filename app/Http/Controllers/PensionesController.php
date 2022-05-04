@@ -41,8 +41,8 @@ class PensionesController extends Controller
     // $pdf = app('dompdf.wrapper');
     // $pdf->loadHTML('<h1>Test</h1>');
     // return $pdf->stream();
-        $data=['pensiones'=>$pensiones[0]];
-        // dd($data);
+        $data=['pensiones'=>$pensiones];
+        //dd($data);
         $pdf=PDF::loadView('pensiones.reporte',$data);
         return $pdf->stream('reporte.pdf');            
 
