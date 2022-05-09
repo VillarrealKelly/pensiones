@@ -29,9 +29,17 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+<!-- 
+                @guest
+                    <img src="https://pensionesestudiantiles.com/wp-content/uploads/2021/05/PensionesEstudiantiles-HOR.png"  width="20" height="20" class="d-inline-block align-top "alt="">&nbsp;&nbsp; -->
+                </a>
+                @else
+                <img src="https://pensionesestudiantiles.com/wp-content/uploads/2021/05/PensionesEstudiantiles-HOR.png" width="150" height="50" alt="" >&nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
                    
 
                 </a>
+                @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -56,12 +64,12 @@
                                 </li>
                             @endif
                         @else
+
                         
                     <a class="btn btn-default" href="{{route('usuarios')}}">USUARIOS</a>
                     <a class="btn btn-default" href="{{route('representantes')}}">REPRESENTANTES</a>
 
                     <a class="btn btn-default" href="{{route('pensiones')}}">PENSIONES</a>
-
 
 
 

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<br>
 <div class="container">
 	<div class="col-md-12">
-	<h1 style="font-family:algeria">Lista  de Usuarios 
+	<h1 style="font-family:algeria"> USUARIOS 
 	<a href="{{route('usuarios.create')}}" class="btn btn-success">
 	<img src="https://cdn-icons-png.flaticon.com/512/32/32360.png" width="20px"> Nuevo Usuario</a></h1>
 	<table class="table table-striped table table-sm">
@@ -27,6 +28,7 @@
 					<a href="{{route('usuarios.edit',$u->usu_id)}}" class="btn btn-info  " title="Editar" >Editar
   
  					</a>
+ 					
 			                    
                     <form action="{{route('usuarios.destroy',$u->usu_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">
                     	@csrf
