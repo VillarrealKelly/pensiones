@@ -68,9 +68,9 @@
 
 	  				 <div class="form-group col-md-6">
 					<label for="">Usuario: </label>
-				    <select type="text" name="usu_id" id="usu_id" class="form-control @error('usu_id') is-invalid @enderror" name="usu_id" value="{{ old('usu_id') }}" required autocomplete="usu_id" autofocus  maxlength="10">
+				    <select type="text" name="usu_id" id="usuarios" class="form-control @error('usu_id') is-invalid @enderror" name="usu_id" value="{{ old('usu_id') }}" required autocomplete="usu_id" autofocus  maxlength="10">
 				    		@foreach($usuarios as $u)
-				    	<option selected disabled  value="">Seleccione una opción</option>
+				    	<!-- <option selected disabled  value="">Seleccione una opción</option> -->
 						<option value="{{$u->usu_id}}">{{$u->usu_cedula}}</option>
 						@endforeach
 
@@ -82,25 +82,34 @@
                                 @enderror 
 
                                 </select>
+
+					<script>
+	
+					$("#usuarios").select2({
+  					tags: true
+					});
+					</script>
+
 	  			</div>
+
 	  				 <div class="form-group col-md-6">
 					<label for="">Estudiantes: </label>
 					
 				 
 					<select class="form-control  @error('est_id') is-invalid @enderror" name="est_id" value="{{ old('est_id') }}" required autocomplete="est_id" autofocus  maxlength="10" id="estudiantes"  type="text" name="est_id"  >
 				    		@foreach($estudiantes as $e)
-				    	<option selected disabled  value="">Seleccione una opción</option>
+				    	<!-- <option selected disabled  value="">Seleccione una opción</option> -->
 						<option value="{{$e->est_id}}">{{$e->est_cedula}}</option>
 						@endforeach
 
 					</select>
 
-				<!-- 	<script>
+					<script>
 	
 					$("#estudiantes").select2({
   					tags: true
 					});
-					</script> -->
+					</script>
 
 	  			</div>
 

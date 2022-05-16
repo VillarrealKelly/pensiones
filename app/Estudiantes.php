@@ -11,5 +11,5 @@ class Estudiantes extends Model
     protected $table='Estudiantes';
     protected $primaryKey='est_id';
 
-    protected $fillable = ['est_nombre','est_apellido','est_cedula','est_curso','est_paralelo','est_especialidad','est_fecha','rep_id'];
+    protected $fillable = ['est_nombre','est_apellido','est_cedula','est_curso','est_paralelo','est_especialidad','est_fecha','rep_id','cur_id','esp_id','par_id'];
 }

@@ -19,10 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -70,7 +70,9 @@
                     <a class="btn btn-default" href="{{route('representantes')}}">REPRESENTANTES</a>
 
                     <a class="btn btn-default" href="{{route('pensiones')}}">PENSIONES</a>
-
+                    <a class="btn btn-default" href="{{route('cursos')}}">CURSOS</a>
+                    <a class="btn btn-default" href="{{route('especialidad')}}">ESPECIALIDADES</a>
+                    <a class="btn btn-default" href="{{route('paralelo')}}">PARALELOS</a>
 
 
                             <li class="nav-item dropdown">

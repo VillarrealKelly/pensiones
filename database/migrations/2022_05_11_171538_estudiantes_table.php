@@ -19,11 +19,11 @@ class EstudiantesTable extends Migration
             $table->string('est_nombre');
             $table->string('est_apellido');
             $table->string('est_cedula')->unique();
-            $table->string('est_curso');
-            $table->string('est_paralelo');
-            $table->string('est_especialidad');
             $table->date('est_fecha');
             $table->foreignId('rep_id')->references('rep_id')->on('representantes');
+            $table->foreignId('esp_id')->references('esp_id')->on('especialidad');
+            $table->foreignId('cur_id')->references('cur_id')->on('cursos');
+            $table->foreignId('par_id')->references('par_id')->on('paralelo');
             // $table->foreignId('cat_id')->references('cat_id')->on('categoria');
     
         });

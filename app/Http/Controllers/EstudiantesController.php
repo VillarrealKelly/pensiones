@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 use App\Estudiantes;
 use App\Representantes;
 use DB;
+use App\Especialidad;
+use App\Paralelo;
+use App\Cursos;
 use Illuminate\Http\Request;
+
+
 
 class EstudiantesController extends Controller
 {
@@ -15,24 +20,27 @@ class EstudiantesController extends Controller
      */
     public function index($id)
     {
-        
+        $cursos=cursos::all();
+        $especialidad=especialidad::all();
+        $paralelo=paralelo::all();
         $representantes=representantes::find($id);
-        $estudiantes=DB::select("SELECT * FROM  estudiantes join representantes on estudiantes.rep_id=representantes.rep_id where estudiantes.rep_id=$id ");
+        $estudiantes=DB::select("SELECT * FROM  estudiantes 
+               JOIN cursos c ON estudiantes.cur_id=c.cur_id
+               JOIN paralelo p ON estudiantes.par_id=p.par_id
+               JOIN especialidad es ON estudiantes.esp_id=es.esp_id
+            join representantes on estudiantes.rep_id=representantes.rep_id where estudiantes.rep_id=$id ");
 
-         // $estudiantes=DB::select("
-         //    SELECT * FROM estudiantes e 
-         //    JOIN representantes r ON e.rep_id=r.rep_id
-         
 
-         //    ");
-
-       // dd('hola');
-         //$estudiantes=Estudiantes::all();
-        ///Carpeta.archivo.blade.php
         return view('estudiantes.index')
-        ->with('estudiantes',$estudiantes)->with('representantes',$representantes)
-         ///1 nombre que recivimos  2como se llama la variable
-        ;
+        ->with('estudiantes',$estudiantes)
+        ->with('representantes',$representantes)
+        ->with('cursos',$cursos)
+        ->with('especialidad',$especialidad)
+        ->with('paralelo',$paralelo)
+       ;
+       
+
+        
 
 
     }
@@ -46,10 +54,19 @@ class EstudiantesController extends Controller
     {
         //
         //dd('create');
-         $representantes=Representantes::find($id);
-
-        return view('estudiantes.create')->with('representantes',$representantes);
-    }
+       
+       $cursos=cursos::all();
+       $especialidad=especialidad::all();
+       $paralelo=paralelo::all();
+       $representantes=Representantes::find($id);
+        return view('estudiantes.create')
+        ->with('representantes',$representantes)
+        ->with('cursos',$cursos)
+        ->with('especialidad',$especialidad)
+        ->with('paralelo',$paralelo)
+       ;
+   }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -64,8 +81,15 @@ class EstudiantesController extends Controller
           $data=$request->all();
           $rep_id=$data['rep_id'];
           $representantes=representantes::all();
+        $cursos=cursos::all();
+       $especialidad=especialidad::all();
+       $paralelo=paralelo::all();
         Estudiantes::create($data);
-        return view('representantes.index')->with('representantes',$representantes);
+        return view('representantes.index')
+        ->with('representantes',$representantes)
+       
+        ;
+
     }
 
     /**
@@ -87,13 +111,19 @@ class EstudiantesController extends Controller
      */
     public function edit($id)
     {
-        //
-         $estudiantes=Estudiantes::find($id);
+ 
+       $cursos=cursos::all();
+       $especialidad=especialidad::all();
+       $paralelo=paralelo::all();
+       $estudiantes=Estudiantes::find($id);
        $representantes=Representantes::all();
        return view('estudiantes.edit')
         ->with('estudiantes',$estudiantes)
-        ->with('representantes',$representantes);
-
+        ->with('representantes',$representantes)
+        ->with('cursos',$cursos)
+        ->with('especialidad',$especialidad)
+        ->with('paralelo',$paralelo);
+       
     }
 
     /**

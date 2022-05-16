@@ -54,59 +54,53 @@
 	  			</div>
 	  			<div class=" form-group col-md-6">
 					<label for="">Curso:</label>
-					<select   name="est_curso" id="est_curso" class="form-control @error('est_curso') is-invalid @enderror" name="est_curso" value="{{ old('est_curso') }}" required autocomplete="est_curso" autofocus>
+					<select   name="cur_id" id="cur_id" class="form-control @error('cur_id') is-invalid @enderror" name="cur_id" value="{{ old('cur_id') }}" required autocomplete="cur_id" autofocus>
 
-						  @error('est_curso')
+						  @error('cur_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 						<option selected disabled  value="">Seleccione una opción</option>
-						<option value="OCTAVO">OCTAVO</option>
-						<option value="NOVENO">NOVENO</option>
-						<option value="DÉCIMO">DÉCIMO</option>
-						<option value="PRIMERO">PRIMERO</option>
-						<option value="SEGUNDO">SEGUNDO</option>
-						<option value="TERCERO">TERCERO</option>
+							@foreach($cursos as $c)
+						<option value="{{$c->cur_id}}">{{$c->cur_detalle}}</option>
+						@endforeach
+						
 						
 					</select>
   				</div>
   				<div class="form-group col-md-6">
 					<label for="">Paralelo:</label>
-					<select   name="est_paralelo" id="est_paralelo" class="form-control @error('est_paralelo') is-invalid @enderror" name="est_paralelo" value="{{ old('est_paralelo') }}" required autocomplete="est_paralelo" autofocus>
+					<select   name="par_id" id="par_id" class="form-control @error('par_id') is-invalid @enderror" name="par_id" value="{{ old('par_id') }}" required autocomplete="par_id" autofocus>
 
-						  @error('est_paralelo')
+						  @error('par_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 						
 						<option selected disabled  value="">Seleccione una opción</option>
-						<option value="A">A</option>
-						<option value="B">B</option>
-						<option value="C">C</option>
-						<option value="D">D</option>
-						<option value="E">E</option>
-						
+							@foreach($paralelo as $p)
+						<option value="{{$p->par_id}}">{{$p->par_detalle}}</option>
+						@endforeach
+					
 						
 					</select>
   				</div>
   				<div class="form-group col-md-6">
 					<label for="">Especialidad:</label>
-					<select   name="est_especialidad" id="est_especialidad" class="form-control @error('est_especialidad') is-invalid @enderror" name="est_especialidad" value="{{ old('est_especialidad') }}" required autocomplete="est_especialidad" autofocus>
+					<select   name="esp_id" id="esp_id" class="form-control @error('esp_id') is-invalid @enderror" name="esp_id" value="{{ old('esp_id') }}" required autocomplete="esp_id" autofocus>
 						  
-						  @error('est_especialidad')
+						  @error('esp_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 						<option selected disabled  value="">Seleccione una opción</option>
-						<option value="Informatica">Informática</option>
-						<option value="Electronica">Electrónica</option>
-						<option value="Contabilidad">Contabilidad</option>
-						<option value="Electricidad">Electricidad</option>
-						<option value="Mecanica Industrial">Mecánica Industrial</option>
-						<option value="Mecanica Automotriz">Mecánica Automotriz</option>
+						@foreach($especialidad as $esp)
+						<option value="{{$esp->esp_id}}">{{$esp->esp_detalle}}</option>
+						@endforeach
+					
 				
 					</select>
   				</div>

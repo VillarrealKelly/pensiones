@@ -23,9 +23,9 @@
 				<td style="text-align:center;">{{$e->est_nombre}}</td>
 				<td style="text-align:center;">{{$e->est_apellido}}</td>
 				<td style="text-align:center;">{{$e->est_cedula}}</td>
-				<td style="text-align:center">{{$e->est_curso}}</td>
-				<td style="text-align:center">{{$e->est_paralelo}}</td>
-				<td style="text-align:center">{{$e->est_especialidad}}</td>
+				<td style="text-align:center;">{{$e->cur_detalle}}</td>
+				<td style="text-align:center;">{{$e->esp_detalle}}</td>
+				<td style="text-align:center;">{{$e->par_detalle}}</td>
 				<td style="text-align:center">{{$e->est_fecha}}</td>
 				<td style="text-align:center">{{$e->rep_cedula}}</td>
 			 <td>

@@ -1,0 +1,11 @@
+if ($id>0) {
+	$Usuario->update_users($usuario,$clave,$correo,$telefono,$fechanac,$id);
+    echo "usuario modificado";
+}else{
+	$Usuario->create_users($usuario,$clave,$correo,$telefono,$fechanac);
+    echo "usuario creado correctamente";
+}
+
+header("location:index.php");
+
+?>
