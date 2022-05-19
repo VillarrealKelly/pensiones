@@ -85,8 +85,8 @@ class EstudiantesController extends Controller
        $especialidad=especialidad::all();
        $paralelo=paralelo::all();
         Estudiantes::create($data);
-        return view('representantes.index')
-        ->with('representantes',$representantes)
+        return redirect(route('estudiantes',$rep_id));
+
        
         ;
 

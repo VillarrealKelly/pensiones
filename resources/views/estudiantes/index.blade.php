@@ -10,7 +10,7 @@
 		<th style="text-align:center;">#</th>
 		<th style="text-align:center;">Nombre</th>
 		<th style="text-align:center;">Apellido</th>
-		<th style="text-align:center;">Cedula</th>
+		<th style="text-align:center;">Cédula</th>
 		<th style="text-align:center;">Curso</th>
 		<th style="text-align:center;">Paralelo</th>
 		<th style="text-align:center;">Especialidad</th>
@@ -31,6 +31,7 @@
 			 <td>
 
 		<div class="row">
+
 					<a href="{{route('estudiantes.edit',$e->est_id)}}" class="btn btn-info" title="Editar">Editar</a>
 			                    
                     <form action="{{route('estudiantes.destroy',$e->est_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">

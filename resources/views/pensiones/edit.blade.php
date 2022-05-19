@@ -96,9 +96,9 @@
 					
 				 
 						<select  value="{{$pensiones->est_id}}" class="form-control  @error('est_id') is-invalid @enderror" name="est_id" value="{{ old('est_id') }}" required autocomplete="est_id" autofocus  maxlength="10" id="estudiantes"  type="text" name="est_id"  >
-				    		@foreach($estudiantes as $e)
 				    	<option selected disabled  value="">Seleccione una opción</option>
-						<option value="{{$e->est_id}}">{{$e->est_cedula}}</option>
+				    		@foreach($estudiantes as $e)
+						<option value="{{$e->est_id}}">{{$e->est_cedula}} - {{$e->est_nombre}} {{$e->est_apellido}} </option>
 						@endforeach
 
 						</select>

@@ -1,9 +1,12 @@
 
 <div class="container">
 	<div class="col-md-12">
-		<h1 style="font-family:algeria">PENSIONES
-		</h1>
-	
+			   <center>
+		<h1 style="text-align:center; font-family:algeria">
+			   <img src="https://previews.123rf.com/images/lemonadeserenade/lemonadeserenade1604/lemonadeserenade160400132/55605301-pila-de-monedas-d%C3%B3lar-un-ejemplo-del-vector-dibujado-a-mano-de-una-pila-de-monedas-de-oro-con-el-sig.jpg" width="60" height="60" class="d-inline-block align-top" alt="">&nbsp;&nbsp;PENSIONES</h1>
+			   <h3  >REPORTE </h3>	
+			   	
+			   </center>
 
 
 
