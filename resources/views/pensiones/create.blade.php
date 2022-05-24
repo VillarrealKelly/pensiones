@@ -16,7 +16,7 @@
 			<div class="row">
 				
 				<div class="form-group col-md-6">
-					<label for="">Cantidad</label>
+					<label for="">Cantidad:</label>
 				    <input type="number" name="pen_cantidad" id="pen_cantidad" class="form-control @error('pen_cantidad') is-invalid @enderror" name="pen_cantidad" value="{{ old('pen_cantidad') }}" required autocomplete="pen_cantidad" autofocus placeholder="Ponga una cantidad" >
 
                                 @error('pen_cantidad')

@@ -25,9 +25,9 @@
 				
 
 				<div class="row">
-					<a href="{{route('usuarios.edit',$u->usu_id)}}" class="btn btn-info  " title="Editar" >Editar
+				<!-- 	<a href="{{route('usuarios.edit',$u->usu_id)}}" class="btn btn-info  " title="Editar" >Editar
   
- 					</a>
+ 					</a> -->
  					
 			                    
                     <form action="{{route('usuarios.destroy',$u->usu_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">
