@@ -54,8 +54,8 @@
 					<label for="">Estado: </label>
 				    <select type="text" name="pen_estado" id="pen_estado" class="form-control @error('pen_estado') is-invalid @enderror" name="pen_estado" value="{{ old('pen_estado') }}" required autocomplete="pen_estado" autofocus maxlength="10">
 				    	<option selected disabled  value="">Seleccione una opción</option>
-				    <option value="cancelado">cancelado</option>
-				    	<option value="pendiente">pendiente</option>
+				    <option value="1">Cancelado</option>
+				    	<option value="0">Pendiente</option>
 
 
                                 @error('pen_estado')

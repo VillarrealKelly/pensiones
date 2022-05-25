@@ -72,6 +72,7 @@
                     <a class="btn btn-default" href="{{route('pensiones')}}">PENSIONES</a>
                     <a class="btn btn-default" href="{{route('cursos')}}">CURSOS</a>
                     <a class="btn btn-default" href="{{route('especialidad')}}">ESPECIALIDADES</a>
+                    <a class="btn btn-default" href="{{route('reportes')}}">REPORTES</a>
                     <a class="btn btn-default" href="{{route('paralelo')}}">PARALELOS</a>&nbsp;
                 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
                 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 

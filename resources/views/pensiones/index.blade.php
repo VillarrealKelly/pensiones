@@ -97,6 +97,15 @@
 
 		<td style="text-align:center">{{$p->pen_fecha}}</td>
 		<td style="text-align:center">{{$p->pen_cant_paga}}</td>
+		@if($p->pen_estado==1)
+		<?php 
+		$p->pen_estado="Cancelado";
+		?>
+		@else
+		<?php
+		$p->pen_estado="Pendiente";
+		?>
+		@endif
 		<td style="text-align:center">{{$p->pen_estado}}</td>
 		<td style="text-align:center">{{$p->usu_nombre}}</td>
 		<td style="text-align:center">{{$p->est_nombre}}</td>
@@ -104,6 +113,7 @@
 
      <td>
 					<div class="row">
+					<a href="{{route('reporte',$p->pen_id)}}" class="btn btn-info" title="Editar" >Reporte</a>
 					<a href="{{route('pensiones.edit',$p->pen_id)}}" class="btn btn-info" title="Editar" >Editar</a>
 			                    
                     <form action="{{route('pensiones.destroy',$p->pen_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">

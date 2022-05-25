@@ -73,3 +73,13 @@ Route::get('/paralelo/edit/{par_id}','ParaleloController@edit')->name('paralelo.
 Route::post('/paralelo/update/{par_id}','ParaleloController@update')->name('paralelo.update');
 Route::post('/paralelo/destroy/{par_id}','ParaleloController@destroy')->name('paralelo.destroy');
 
+Route::get('/reportes','ReporteController@index')->name('reportes');
+Route::post('/reportes/search','ReporteController@index')->name('reportes.search');
+
+
+
+
+
+
+
+
