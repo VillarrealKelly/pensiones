@@ -4,7 +4,26 @@
 <div class="container">
 	<div class="col-md-12">
 		<h1 style="font-family:algeria">REPORTE
-	
+	<?php 
+if (isset($pensiones)){
+	$est_id=$pensiones->est_id;
+	$est_nombre=$pensiones->est_nombre;
+	$est_apellido=$pensiones->est_apellido;
+	$est_cedula=$pensiones->est_cedula;
+	$est_fecha=$pensiones->est_fecha;
+
+
+
+}else{
+	$est_id="";
+	$est_nombre="";
+	$est_apellido="";
+	$est_cedula="";
+	$est_fecha="";
+
+}
+
+	?>
 
 		</h1>
 		<br>

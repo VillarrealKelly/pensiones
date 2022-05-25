@@ -45,6 +45,16 @@ class ReporteController extends Controller
     {
         //
     }
+     public function reportes(Request $request)
+    {
+        //
+        $pensiones=DB::select("
+            SELECT * FROM estudiantes est 
+LEFT JOIN pensiones p ON p.pen_id=est.est_id 
+and p.pen_fecha BETWEEN '2022-05-01' AND '2022-05-25' AND est.est_id=1 and p.pen_estado=0         ");
+
+
+    }
 
     /**
      * Store a newly created resource in storage.
