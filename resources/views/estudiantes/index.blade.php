@@ -6,6 +6,9 @@
 	<h1 style="font-family:algeria ">ESTUDIANTES 
 	<a href="{{route('estudiantes.create',$representantes->rep_id)}}" class="btn btn-success">
 	<img src="https://cdn-icons-png.flaticon.com/512/32/32360.png" width="20px"> Nuevo Estudiantes </a></h1>
+	@if(!empty(Session::get('sms')))
+	<h2 class="alert alert-success">{{Session::get('sms')}}</h2>
+	@endif
 	<table class="table table-striped table table-sm">
 		<th style="text-align:center;">#</th>
 		<th style="text-align:center;">Nombre</th>

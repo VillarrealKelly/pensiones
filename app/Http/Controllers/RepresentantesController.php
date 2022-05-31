@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Representantes;
 use Illuminate\Http\Request;
+use DB;
 
 class RepresentantesController extends Controller
 {
@@ -13,13 +14,10 @@ class RepresentantesController extends Controller
      */
     public function index()
     {
-        //
-        //dd('holi');
          $representantes=Representantes::all();
-        ///Carpeta.archivo.blade.php
+       
         return view('representantes.index')
-        ->with('representantes',$representantes)///1 nombre que recivimos  2como se llama la variable
-        ;
+        ->with('representantes',$representantes);
     }
 
     /**
@@ -100,7 +98,20 @@ class RepresentantesController extends Controller
     public function destroy($id)
     {
         //
+        $representantes=DB::select("SELECT * FROM representantes where rep_id=$id");
+        if (empty($representantes)){
+            $sms="Eliminado correctamente";
          Representantes::destroy($id);
-        return redirect(route('representantes'));
+            
+        
+         }else{
+            $sms=" No se puede eliminar ";
+         }
+         //Session::put('sms',$sms);
+         echo "<h1 style='backgrounc:red;color:white'>
+         $sms
+         <a href='".route('representantes')."'>Volver a representantes</a>
+         <h1>";
+       // return redirect(route('representantes'));
     }
 }

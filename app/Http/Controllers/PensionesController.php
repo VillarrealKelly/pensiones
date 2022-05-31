@@ -25,7 +25,7 @@ class PensionesController extends Controller
         $estudiantes=estudiantes::all();
         $est_id=0;
         
-        // $est_id=$data->est_id;
+       
 
         if(isset($data['desde'])){// si lehe dado en el botón buscar
         $desde=$data['desde'];
@@ -36,25 +36,21 @@ class PensionesController extends Controller
 
         }
          $pensiones=DB::select("
-SELECT * FROM pensiones p 
+            SELECT * FROM pensiones p 
             Join users u ON p.usu_id=u.usu_id
             JOIN estudiantes e ON p.est_id=e.est_id
-             WHERE p.pen_fecha BETWEEN '2022-01-02' AND '2022-05-18' AND e.est_id=$est_id 
+             WHERE p.pen_fecha BETWEEN '$hasta' AND '$desde' AND e.est_id=$est_id 
 
              -- AND p.pen_estado='pendiente'
 
             ");
-         if(isset($pension[0])){
+         if(isset($pensiones[0])){
 
          $pen=$pensiones[0];
          $est_id=$pen->est_id;
          }
          
         if (isset($data['btn_pdf'])) {
-
-    // $pdf = app('dompdf.wrapper');
-    // $pdf->loadHTML('<h1>Test</h1>');
-    // return $pdf->stream();
         $data=['pensiones'=>$pensiones];
         
         $pdf=PDF::loadView('pensiones.reporte',$data);
@@ -67,9 +63,8 @@ SELECT * FROM pensiones p
          ->with('pensiones',$pensiones)
          ->with('estudiantes',$estudiantes)
          ->with('desde',$desde)
-         ->with('est_id',$est_id)
          ->with('hasta',$hasta)   
-                     ;
+         ->with('est_id',$est_id);
     }
     
 

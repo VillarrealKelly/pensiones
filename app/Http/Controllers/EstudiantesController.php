@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 
 
+
 class EstudiantesController extends Controller
 {
     /**
@@ -19,7 +20,9 @@ class EstudiantesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($id)
+
     {
+       
         $cursos=cursos::all();
         $especialidad=especialidad::all();
         $paralelo=paralelo::all();
@@ -36,8 +39,7 @@ class EstudiantesController extends Controller
         ->with('representantes',$representantes)
         ->with('cursos',$cursos)
         ->with('especialidad',$especialidad)
-        ->with('paralelo',$paralelo)
-       ;
+        ->with('paralelo',$paralelo);
        
 
         
@@ -52,9 +54,7 @@ class EstudiantesController extends Controller
      */
     public function create($id)
     {
-        //
-        //dd('create');
-       
+      
        $cursos=cursos::all();
        $especialidad=especialidad::all();
        $paralelo=paralelo::all();
@@ -63,8 +63,7 @@ class EstudiantesController extends Controller
         ->with('representantes',$representantes)
         ->with('cursos',$cursos)
         ->with('especialidad',$especialidad)
-        ->with('paralelo',$paralelo)
-       ;
+        ->with('paralelo',$paralelo);
    }
     
 
@@ -81,14 +80,14 @@ class EstudiantesController extends Controller
           $data=$request->all();
           $rep_id=$data['rep_id'];
           $representantes=representantes::all();
-        $cursos=cursos::all();
-       $especialidad=especialidad::all();
-       $paralelo=paralelo::all();
-        Estudiantes::create($data);
-        return redirect(route('estudiantes',$rep_id));
+          $cursos=cursos::all();
+          $especialidad=especialidad::all();
+          $paralelo=paralelo::all();
+          Estudiantes::create($data);
+          return redirect(route('estudiantes',$rep_id));
 
        
-        ;
+        
 
     }
 
@@ -136,7 +135,7 @@ class EstudiantesController extends Controller
     public function update(Request $request, $id)
     {
         //
-             $estudiantes=Estudiantes::find($id);
+        $estudiantes=Estudiantes::find($id);
         $estudiantes->update($request->all());
         return redirect(route('estudiantes'));
     }
@@ -150,7 +149,22 @@ class EstudiantesController extends Controller
     public function destroy($id)
     {
         //
-        Estudiantes::destroy($id);
-        return redirect(route('estudiantes'));
-    }
+        $estudiantes=DB::select("SELECT * FROM estudiantes where est_id=$id");
+
+         if (empty($estudiantes)){
+            $sms='Eliminado correctamente';
+            Estudiantes::destroy($id);
+
+         }else{
+            $sms='No se puede eliminar';
+         }
+             echo "<h1 style='background:red;color:white'>
+         $sms
+         <a href='".route('estudiantes')."'>Volver a representantes</a>
+         <h1>";
+        //  Session::put('sms',$sms);
+        // return redirect(route('estudiantes',1));
+            
+     }
+    
 }

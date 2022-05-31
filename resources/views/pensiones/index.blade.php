@@ -113,7 +113,7 @@
 
      <td>
 					<div class="row">
-					<a href="{{route('reporte',$p->pen_id)}}" class="btn btn-info" title="Editar" >Reporte</a>
+				
 					<a href="{{route('pensiones.edit',$p->pen_id)}}" class="btn btn-info" title="Editar" >Editar</a>
 			                    
                     <form action="{{route('pensiones.destroy',$p->pen_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">

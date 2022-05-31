@@ -67,7 +67,7 @@
 
                         
                     <a class="btn btn-default" href="{{route('usuarios')}}">USUARIOS</a>
-                    <a class="btn btn-default" href="{{route('representantes')}}">REPRESENTANTES</a>
+                    <a class="btn btn-default" href="{{route('representantes',0)}}">REPRESENTANTES</a>
 
                     <a class="btn btn-default" href="{{route('pensiones')}}">PENSIONES</a>
                     <a class="btn btn-default" href="{{route('cursos')}}">CURSOS</a>

@@ -21,18 +21,30 @@ class ReporteController extends Controller
     {
         //
          //dd('holi');
-       $usuarios=User::all();
+           $desde=date('Y-m-d');
+        $hasta=date('Y-m-d');
+        $estudiantes=estudiantes::all();
+        $est_id=0;
+        $pen_id=0;
+        $usuarios=User::all();
         $pensiones=Pensiones::all();
-        $estudiantes=Estudiantes::all();
+        
+          if(isset($data['desde'])){// si lehe dado en el botón buscar
+        $desde=$data['desde'];
+        $hasta=$data['hasta'];
+ 
+        
+
+        }
+        
         return view('reportes.index')
          ->with('pensiones',$pensiones)
          ->with('estudiantes',$estudiantes)
-            ->with('usuarios',$usuarios)
-
-     // ->with('desde',$desde)
-        // ->with('est_id',$est_id)
-         //->with('hasta',$hasta)   
-                     ;
+        ->with('usuarios',$usuarios)
+         ->with('est_id',$est_id)
+           ->with('desde',$desde)
+         ->with('hasta',$hasta)  
+         ->with('pen_id',$pen_id);
     }
     
 
@@ -45,16 +57,71 @@ class ReporteController extends Controller
     {
         //
     }
-     public function reportes(Request $request)
+     public function search(Request $request)
     {
         //
-        $pensiones=DB::select("
-            SELECT * FROM estudiantes est 
-LEFT JOIN pensiones p ON p.pen_id=est.est_id 
-and p.pen_fecha BETWEEN '2022-05-01' AND '2022-05-25' AND est.est_id=1 and p.pen_estado=0         ");
+        
+        $estudiantes=estudiantes::all();
+        $usuarios=User::all();
+        $pensiones=Pensiones::all();
+        $est_id="";
+        $pen_est="";
+        $sql_est="";
+        $sql_pen="";
+        $data=$request->all();
+     
+        if(isset($data['desde'])){
+            $desde=$data['desde'];
+            $hasta=$data['hasta'];
+           
+
+        }
+        if(isset($data['est_id'])){
+            $est_id=$data['est_id'];
+            $sql_est="AND p.est_id=$est_id ";
+        }
+        if(isset($data['pen_est'])){
+            $pen_est=$data['pen_est'];
+            $sql_pen="AND p.pen_estado=$pen_est ";
+        }
+
+     $reporte=DB::select("SELECT * FROM pensiones p 
+        JOIN estudiantes e ON p.est_id=e.est_id
+        JOIN users usu ON p.usu_id=usu.usu_id 
+        AND p.pen_fecha
+        BETWEEN    '$desde' AND '$hasta'
+        
+        $sql_est
+        $sql_pen
+        ");
+
+        if(isset($data['btn_pdf'])){
+ 
+            $data=['reporte'=>$reporte];
+            $pdf=PDF::loadView('reportes.pdf',$data);
+            return $pdf->stream('reportes.pdf');
+        }
+         
+
+
+
+
+    return view('reportes.index')->with('reporte',$reporte)
+         ->with('pensiones',$pensiones)
+         ->with('estudiantes',$estudiantes)
+         ->with('usuarios',$usuarios)
+          ->with('desde',$desde)
+          ->with('hasta',$hasta)
+         ->with('est_id',$est_id)
+         ->with('pen_est',$pen_est) ;
+   
 
 
     }
+
+   
+       
+    
 
     /**
      * Store a newly created resource in storage.
