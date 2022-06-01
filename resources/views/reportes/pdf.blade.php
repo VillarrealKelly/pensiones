@@ -19,8 +19,22 @@
 		<th style="text-align:center;">Usuario</th>
 		<th style="text-align:center;">Estudiante</th>
 	
-	
 		@foreach($reporte as $p)
+		<?php
+	
+		$t_egr=$p->pen_cant_paga;
+		$t_saldo=0;
+	?>
+
+		<?php
+		
+
+		if ($p->pen_cant_paga==1){
+		$t_egr+=$p->pen_cant_paga;
+		}
+		$t_saldo=$t_egr;
+
+		?>
 
 
 
@@ -45,6 +59,14 @@
 
 		@endforeach
      </tr>
+     	<tr>
+			<th colspan="3">TOTAL
+				
+				<th>SALDO:{{$t_saldo}}</th>
+				
+				
+			</th>
+		</tr>
 
 
 </table>

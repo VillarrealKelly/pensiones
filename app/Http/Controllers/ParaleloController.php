@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paralelo;
+use DB;
 class ParaleloController extends Controller
 {
     /**
@@ -97,8 +98,21 @@ class ParaleloController extends Controller
     public function destroy($id)
     {
         //
+           $paralelo=DB::select("SELECT * FROM paralelo where par_id=$id");
+        if (empty($paralelo)){
+            $sms="Eliminado correctamente";
+         Representantes::destroy($id);
+            
+        
+         }else{
+            $sms=" No se puede eliminar ";
+         }
+         //Session::put('sms',$sms);
+         echo "<h1 style='background:red;color:white'>
+         $sms
+         <a href='".route('paralelo')."'>Volver a paralelo</a>
+         <h1>";
 
-         paralelo::destroy($id);
-        return redirect(route('paralelo'));
+         
     }
 }

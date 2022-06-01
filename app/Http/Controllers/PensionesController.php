@@ -39,7 +39,7 @@ class PensionesController extends Controller
             SELECT * FROM pensiones p 
             Join users u ON p.usu_id=u.usu_id
             JOIN estudiantes e ON p.est_id=e.est_id
-             WHERE p.pen_fecha BETWEEN '$hasta' AND '$desde' AND e.est_id=$est_id 
+             WHERE p.pen_fecha BETWEEN '$desde' AND '$hasta' AND e.est_id=$est_id 
 
              -- AND p.pen_estado='pendiente'
 

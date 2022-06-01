@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB; 
 class UsuariosController extends Controller
 {
     /**
@@ -100,7 +101,19 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         //
-         User::destroy($id);
-        return redirect(route('usuarios'));
+           $usuarios=DB::select("SELECT * FROM users where usu_id=$id");
+
+         if (empty($usuarios)){
+            $sms='Eliminado correctamente';
+            Estudiantes::destroy($id);
+
+         }else{
+            $sms='No se puede eliminar';
+         }
+             echo "<h1 style='background:red;color:white'>
+         $sms
+         <a href='".route('usuarios')."'>Volver a usuarios</a>
+         <h1>";
+
     }
 }

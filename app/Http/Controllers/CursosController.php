@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cursos;
+use DB;
 
 class CursosController extends Controller
 {
@@ -99,7 +100,20 @@ class CursosController extends Controller
     public function destroy($id)
     {
         //
-        Cursos::destroy($id);
-        return redirect(route('cursos'));
+           $cursos=DB::select("SELECT * FROM cursos where cur_id=$id");
+        if (empty($cursos)){
+            $sms="Eliminado correctamente";
+         Representantes::destroy($id);
+            
+        
+         }else{
+            $sms=" No se puede eliminar ";
+         }
+         //Session::put('sms',$sms);
+         echo "<h1 style='background:red;color:white'>
+         $sms
+         <a href='".route('cursos')."'>Volver a cursos</a>
+         <h1>";
+       
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Especialidad;
+use DB;
 class EspecilidadController extends Controller
 {
     /**
@@ -97,7 +98,20 @@ class EspecilidadController extends Controller
     public function destroy($id)
     {
         //
-         Especialidad::destroy($id);
-        return redirect(route('especialidad'));
+        $especialidad=DB::select("SELECT * FROM especialidad where esp_id=$id");
+        if (empty($especialidad)){
+            $sms="Eliminado correctamente";
+         Representantes::destroy($id);
+            
+        
+         }else{
+            $sms=" No se puede eliminar ";
+         }
+         //Session::put('sms',$sms);
+         echo "<h1 style='background:red;color:white'>
+         $sms
+         <a href='".route('especialidad')."'>Volver a especialidad</a>
+         <h1>";
+         
     }
 }
