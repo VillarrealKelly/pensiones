@@ -160,7 +160,7 @@ class EstudiantesController extends Controller
          }
              echo "<h1 style='background:red;color:white'>
          $sms
-         <a href='".route('estudiantes')."'>Volver a representantes</a>
+         <a href='".route('representantes')."'>Volver a representantes</a>
          <h1>";
         //  Session::put('sms',$sms);
         // return redirect(route('estudiantes',1));

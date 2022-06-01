@@ -70,10 +70,10 @@ class UsuariosController extends Controller
     public function edit($id)
     {
         //
-        $usuarios=User::find($id);
-        return view('usuarios.edit')
-        ->with('usuarios',$usuarios)
-        ;
+        // $usuarios=User::find($id);
+        // return view('usuarios.edit')
+        // ->with('usuarios',$usuarios)
+        // ;
     }
 
     /**

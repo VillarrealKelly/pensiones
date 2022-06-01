@@ -35,7 +35,7 @@
 
 		<div class="row">
 
-					<a href="{{route('estudiantes.edit',$e->est_id)}}" class="btn btn-info" title="Editar">Editar</a>
+				<!-- 	<a href="{{route('estudiantes.edit',$e->est_id)}}" class="btn btn-info" title="Editar">Editar</a> -->
 			                    
                     <form action="{{route('estudiantes.destroy',$e->est_id)}}" method="POST" onsubmit="return confirm('Desea eliminar')">
                     	@csrf

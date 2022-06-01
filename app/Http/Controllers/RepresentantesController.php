@@ -108,7 +108,7 @@ class RepresentantesController extends Controller
             $sms=" No se puede eliminar ";
          }
          //Session::put('sms',$sms);
-         echo "<h1 style='backgrounc:red;color:white'>
+         echo "<h1 style='background:red;color:white'>
          $sms
          <a href='".route('representantes')."'>Volver a representantes</a>
          <h1>";

@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios','UsuariosController@index')->name('usuarios');
 Route::get('/usuarios/create','UsuariosController@create')->name('usuarios.create');
 Route::post('/usuarios/store','UsuariosController@store')->name('usuarios.store');
-Route::get('/usuarios/edit/{usu_id}','UsuariosController@edit')->name('usuarios.edit');
+
 Route::post('/usuarios/update/{usu_id}','UsuariosController@update')->name('usuarios.update');
 Route::post('/usuarios/destroy/{usu_id}','UsuariosController@destroy')->name('usuarios.destroy');
 
@@ -35,7 +35,7 @@ Route::get('/representantes/edit/{rep_id}','RepresentantesController@edit')->nam
 Route::post('/representantes/update/{rep_id}','RepresentantesController@update')->name('representantes.update');
 Route::post('/representantes/destroy/{rep_id}','RepresentantesController@destroy')->name('representantes.destroy');
 
-Route::get('/estudiantes/{rep_id}','EstudiantesController@index')->name('estudiantes');
+Route::get('/estudiantes/{rep_id}/','EstudiantesController@index')->name('estudiantes');
 Route::get('/estudiantes/create/{rep_id}','EstudiantesController@create')->name('estudiantes.create');
 Route::post('/estudiantes/store','EstudiantesController@store')->name('estudiantes.store');
 Route::get('/estudiantes/edit/{rep_id}','EstudiantesController@edit')->name('estudiantes.edit');
